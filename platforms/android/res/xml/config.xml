@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="55" id="com.albahra.sprinklers" version="1.4.7" versionCode="55" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="networkinterface">
+        <param name="android-package" value="com.albahra.plugin.networkinterface.networkinterface" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <splash density="mdpi" src="res/android/screens/mdpi.9.png" />
+    <splash density="xhdpi" src="res/android/screens/xhdpi.9.png" />
+    <preference name="phonegap-version" value="cli-5.1.1" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="permissions" value="none" />
+    <preference name="WebSecurity" value="disable" />
+    <preference name="KeepRunning" value="false" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <name>OpenSprinkler</name>
+    <description>
+            Designed to allow intuitive control of the OpenSprinkler irrigation controller.
+        </description>
+    <author email="salbahra@gmail.com" href="http://albahra.com/sprinklers/">
+            Samer Albahra
+        </author>
+    <access origin="*" />
+    <allow-navigation href="*" />
+    <icon gap:platform="ios" height="57" src="res/ios/icons/icon-57.png" width="57" />
+    <icon gap:platform="ios" height="120" src="res/ios/icons/icon-60@2x.png" width="120" />
+    <icon gap:platform="ios" height="180" src="res/ios/icons/icon-60@3x.png" width="180" />
+    <icon gap:platform="ios" height="72" src="res/ios/icons/icon-72.png" width="72" />
+    <icon gap:platform="ios" height="144" src="res/ios/icons/icon-72@2x.png" width="144" />
+    <icon gap:platform="ios" height="76" src="res/ios/icons/icon-76.png" width="76" />
+    <icon gap:platform="ios" height="152" src="res/ios/icons/icon-76@2x.png" width="152" />
+    <icon gap:platform="android" gap:qualifier="ldpi" src="res/android/icons/ldpi.png" />
+    <icon gap:platform="android" gap:qualifier="mdpi" src="res/android/icons/mdpi.png" />
+    <icon gap:platform="android" gap:qualifier="hdpi" src="res/android/icons/hdpi.png" />
+    <icon gap:platform="android" gap:qualifier="xhdpi" src="res/android/icons/xhdpi.png" />
+    <icon gap:platform="android" gap:qualifier="xxhdpi" src="res/android/icons/xxhdpi.png" />
+    <icon gap:platform="winphone" src="res/winphone/icons/icon-48.png" />
+    <gap:plugin name="cordova-plugin-statusbar" source="npm" />
+    <gap:plugin name="cordova-plugin-networkinterface" source="npm" />
+    <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
+    <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
+    <gap:plugin name="cordova-plugin-geolocation" source="npm" />
+    <gap:plugin name="cordova-plugin-camera" source="npm" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" version="1.0.0" />
+    <gap:config-file overwrite="false" parent="NSLocationAlwaysUsageDescription" platform="ios">
+        <string>Your current location will be used to configure OpenSprinkler.</string>
+    </gap:config-file>
+    <gap:config-file overwrite="false" parent="NSLocationWhenInUseUsageDescription" platform="ios">
+        <string>Your current location will be used to configure OpenSprinkler.</string>
+    </gap:config-file>
+    <gap:config-file parent="CFBundleShortVersionString" platform="ios">
+        <string>147</string>
+    </gap:config-file>
+    <gap:config-file mode="merge" parent="/manifest" platform="android">
+        <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="22" />
+        <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+        <supports-screens android:largeScreens="true" android:smallScreens="true" android:xlargeScreens="true" />
+        <application android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+            <activity android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
+        </application>
+    </gap:config-file>
+    <gap:splash gap:platform="ios" height="480" src="res/ios/screens/startup.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="res/ios/screens/startup-retina.png" width="640" />
+    <gap:splash gap:platform="ios" height="1136" src="res/ios/screens/startup-iphone5-retina.png" width="640" />
+    <gap:splash gap:platform="ios" height="1334" src="res/ios/screens/startup-iphone6-portrait.png" width="750" />
+    <gap:splash gap:platform="ios" height="750" src="res/ios/screens/startup-iphone6-landscape.png" width="1334" />
+    <gap:splash gap:platform="ios" height="2208" src="res/ios/screens/startup-iphone6plus-portrait.png" width="1242" />
+    <gap:splash gap:platform="ios" height="1242" src="res/ios/screens/startup-iphone6plus-landscape.png" width="2208" />
+    <gap:splash gap:platform="ios" height="768" src="res/ios/screens/startup-tablet-landscape.png" width="1024" />
+    <gap:splash gap:platform="ios" height="1024" src="res/ios/screens/startup-tablet-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="1536" src="res/ios/screens/startup-tablet-landscape-retina.png" width="2048" />
+    <gap:splash gap:platform="ios" height="2048" src="res/ios/screens/startup-tablet-portrait-retina.png" width="1536" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/android/screens/mdpi.9.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/android/screens/xhdpi.9.png" />
+    <gap:splash gap:platform="winphone" src="res/winphone/screens/startup.jpg" />
+</widget>
