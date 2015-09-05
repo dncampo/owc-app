@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( "grunt-contrib-csslint" );
 	grunt.loadNpmTasks( "grunt-contrib-clean" );
 	grunt.loadNpmTasks( "grunt-jscs" );
+	grunt.loadNpmTasks("grunt-contrib-connect");
 	grunt.loadTasks( "tasks" );
 
 	var bumpVersion = function( version ) {
@@ -54,6 +55,17 @@ module.exports = function( grunt ) {
 	// Project configuration.
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( "package.json" ),
+
+		connect: {
+			server: {
+				options: {
+					port: process.env.PORT || 5000,
+					base: "www",
+					keepalive: true
+				}
+			}
+		},
+
 		secrets: secrets,
 
 		jshint: {
@@ -327,7 +339,8 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( "default", [ "jshint", "jscs" ] );
+	grunt.registerTask( "default", [ "jshint", "jscs", "connect" ] );
+	grunt.registerTask( "heroku", [ "connect" ] );
 	grunt.registerTask( "test", [ "default", "blanket_mocha" ] );
 	grunt.registerTask( "updateLang", [ "shell:updateLang" ] );
 	grunt.registerTask( "pushEng", [ "shell:pushEng" ] );
