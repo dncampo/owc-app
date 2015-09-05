@@ -61,8 +61,8 @@
     "lodash": "^3.6.0",
     "mocha": "^2.2.3",
     "xcode": "^0.8.0"
-  }, 
+  },
   "scripts": {
-    "postinstall": "npm install; ./node_modules/grunt-cli/bin/grunt heroku"
+    "postinstall": "echo postinstall time; ./node_modules/grunt-cli/bin/grunt heroku"
   }
 }
