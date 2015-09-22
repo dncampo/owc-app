@@ -5126,6 +5126,94 @@ var showHome = ( function() {
 	return begin;
 } )();
 
+
+var showStart = ( function() {
+	var page = $( "<div data-role='page' id='start'>" +
+		    "<ul data-role='none' id='welcome_list' class='ui-listview ui-listview-inset ui-corner-all'>" +
+		        "<li><div class='logo' id='welcome_logo'></div></li>" +
+		        "<li class='ui-li-static ui-body-inherit ui-first-child ui-last-child ui-li-separate'>" +
+		            "<p class='rain-desc'>" +
+		                _( "Bienvenidos a la aplicacion de Open Water Control. Esta aplicacion solo trabaja con el controlador y debe ser configurado e instalado en la red de su domicilio." ) +
+		            "</p>" +
+		            "<a class='iab iabNoScale ui-btn ui-mini center' target='_blank' href='https://www.openwatercontrol.com.ar/comprar/'>" +
+		                _( "Comprar OwControl" ) +
+		            "</a>" +
+		        "</li>" +
+		        /*"<li class='ui-first-child ui-last-child'>" +
+		            "<a href='#' class='ui-btn center cloud-login'>" + _( "OWCONTROL Login" ) + "</a>" +
+		        "</li>" +
+		        "<hr class='content-divider'>" +*/
+		        "<li id='auto-scan' class='ui-first-child'>" +
+		            "<a href='#' class='ui-btn ui-btn-icon-right ui-icon-carat-r'>" +
+		                _( "Buscar Controlador" ) +
+		            "</a>" +
+		        "</li>" +
+		        "<li class='ui-first-child ui-last-child'>" +
+		            "<a class='ui-btn ui-btn-icon-right ui-icon-carat-r' data-rel='popup' href='#addnew'>" +
+		                 _( "Agregar Controlador" ) +
+		            "</a>" +
+		        "</li>" +
+		    "</ul>" +
+		"</div>" ),
+		checkAutoScan = function() {
+			updateDeviceIP( function( ip ) {
+		        if ( ip === undefined ) {
+		            resetStartMenu();
+		            return;
+		        }
+
+		        // Check if the IP is on a private network, if not don't enable automatic scanning
+		        if ( !isLocalIP( ip ) ) {
+		            resetStartMenu();
+		            return;
+		        }
+
+		        //Change main menu items to reflect ability to automatically scan
+		        next.removeClass( "ui-first-child" ).find( "a.ui-btn" ).text( _( "Agregar controlador manualmente" ) );
+		        auto.show();
+			} );
+		},
+		resetStartMenu = function() {
+		    next.addClass( "ui-first-child" ).find( "a.ui-btn" ).text( _( "Agregar Controlador" ) );
+		    auto.hide();
+		},
+		auto = page.find( "#auto-scan" ),
+		next = auto.next();
+
+    page.find( "#auto-scan" ).find( "a" ).on( "click", function() {
+        startScan();
+        return false;
+    } );
+
+    page.find( "a[href='#addnew']" ).on( "click", function() {
+		showAddNew();
+    } );
+
+    page.find( ".cloud-login" ).on( "click", function() {
+        requestCloudAuth();
+        return false;
+    } );
+
+    page.on( "pagehide", function() {
+        page.detach();
+    } );
+
+	function begin() {
+		if ( isControllerConnected() ) {
+			return false;
+		}
+
+	    $( "#start" ).remove();
+
+	    $.mobile.pageContainer.append( page );
+
+		checkAutoScan();
+	}
+
+	return begin;
+} )();
+
+/* 
 var showStart = ( function() {
 	var page = $( "<div data-role='page' id='start'>" +
 		    "<ul data-role='none' id='welcome_list' class='ui-listview ui-listview-inset ui-corner-all'>" +
@@ -5212,6 +5300,10 @@ var showStart = ( function() {
 	return begin;
 } )();
 
+
+*/
+
+  
 function showGuidedSetup() {
 
 	// Stub for guided setup page
@@ -9140,11 +9232,11 @@ function requestCloudAuth( callback ) {
 
     var popup = $( "<div data-role='popup' class='modal' id='requestCloudAuth' data-theme='a'>" +
                 "<ul data-role='listview' data-inset='true'>" +
-                    "<li data-role='list-divider'>" + _( "OpenSprinkler.com Login" ) + "</li>" +
+                    "<li data-role='list-divider'>" + _( "Logeo OpenWaterControl.com" ) + "</li>" +
                     "<li><p class='rain-desc tight'>" +
                         _( "Use your OpenSprinkler.com login and password to securely sync sites between all your devices." ) +
                         "<br><br>" +
-                        _( "Don't have an account?" ) + " <a href='https://opensprinkler.com/wp-login.php?action=register' class='iab'>" +
+                        _( "Don't have an account?" ) + " <a href='https://openwatercontrol.com/register' >" +
 						_( "Register here" ) + "</a>" +
                     "</p></li>" +
                     "<li>" +
@@ -11292,14 +11384,16 @@ function updateLang( lang ) {
 
     //Empty out the current language (English is provided as the key)
     language = {};
-
+    //storage.get( "lang", "es" );
+	
     if ( typeof lang === "undefined" ) {
         storage.get( "lang", function( data ) {
 
             //Identify the current browser's locale
-            var locale = data.lang || navigator.language || navigator.browserLanguage || navigator.systemLanguage || navigator.userLanguage || "en";
-
-            updateLang( locale.substring( 0, 2 ) );
+             var locale = data.lang || navigator.language || navigator.browserLanguage || navigator.systemLanguage || navigator.userLanguage || "es";
+             
+			 updateLang( locale.substring( 0, 2 ) );         
+             
         } );
         return;
     }
@@ -11307,7 +11401,8 @@ function updateLang( lang ) {
     storage.set( { "lang":lang } );
     currLang = lang;
 
-    if ( lang === "en" ) {
+
+   if ( lang === "en" ) {
         setLang();
         return;
     }

@@ -15,17 +15,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	<title>OpenSprinkler</title>
+    	<title>Open WATER CONTROL</title>
     	<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     	<meta content="yes" name="apple-mobile-web-app-capable">
-        <meta name="apple-mobile-web-app-title" content="OpenSprinkler">
+        <meta name="apple-mobile-web-app-title" content="OpenWaterControl">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'">
-        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="shortcut icon" href="img/owclogo.ico">
         <link rel="stylesheet" href="css/jqm.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="cordova.js"></script>
+        
         <script src="js/jquery.js"></script>
         <script src="js/libs.js"></script>
         <script src="js/main.js"></script>
@@ -39,31 +39,30 @@
 
         <div data-role="page" id="loadingPage"></div>
 
-        <div data-role="panel" id="sprinklers-settings" data-position-fixed="true" data-theme="b" class="hidden">
-            <ul data-role="listview" data-theme="b">
-                <li class="multiSite">
-                    <select data-mini="true" id="site-selector"></select>
-                </li>
-                <li class="multiSite" data-icon="gear"><a href="#site-control" data-translate="Manage Sites"></a></li>
-                <li data-icon="action"><a href="#" class="export_config" data-translate="Export Configuration"></a></li>
-                <li data-icon="back"><a href="#" class="import_config" data-translate="Import Configuration"></a></li>
-                <li data-icon="cloud"><a href="#" class="show-providers" data-translate="Weather Provider"></a></li>
-                <li data-icon="mail"><a href="https://opensprinkler.freshdesk.com/widgets/feedback_widget/new?&widgetType=popup&screenshot=no&attachFile=no&formTitle=Help%20%26%20Support" target="_blank" class="iab iabNoScale" data-translate="Help & Support"></a></li>
-                <li data-icon="info"><a href="#about" data-translate="About"></a></li>
-                <li data-icon="location"><a href="#localization" data-translate="Localization"></a></li>
-                <li class="hidden logout-button" data-icon="power"><a id="logout" href="#" data-translate="Logout"></a></li>
-                <li class="hidden login-button"><a class="cloud-login" href="#" data-translate="OpenSprinkler.com Login"></a></li>
-                <li data-role="list-divider" data-translate="Advanced"></li>
-                <li data-icon="power"><a href="#" class="toggleOperation">
-                    <span data-translate="Disable"></span>
-                    <span> </span>
-                    <span data-translate="Operation"></span>
-                </a></li>
-                <li data-icon="lock" class="changePassword"><a href="#" data-translate="Change Password"></a></li>
-                <li data-icon="alert"><a href="#" class="reboot-os" data-translate="Reboot OpenSprinkler"></a></li>
-                <li data-icon="alert" class="localSite hidden"><a id="downgradeui" href="#" data-translate="Downgrade UI"></a></li>
-                <li data-icon="info" class="weatherAdjust"><a href="#debugWU" class="squeeze" data-translate="Weather Diagnostics"></a></li>
-            </ul>
+        
+<div data-role="panel" id="sprinklers-settings" data-position-fixed="true" data-theme="b" class="hidden"> 
+  <ul data-role="listview" data-theme="b">
+    <li class="multiSite"> 
+      <select name="select" id="site-selector" data-mini="true">
+      </select>
+    </li>
+    <li class="multiSite" data-icon="gear"><a href="#site-control" data-translate="Administrar Sitios"></a></li>
+    <li data-icon="action"><a href="#" class="export_config" data-translate="Exportar Configuración"></a></li>
+    <li data-icon="back"><a href="#" class="import_config" data-translate="Importar Configuración"></a></li>
+    <li data-icon="cloud"><a href="#" class="show-providers" data-translate="Pronóstico Clima"></a></li>
+    <li data-icon="mail"><a href="https://openwatercontrol.com/contact/" target="_blank" class="iab iabNoScale" data-translate="Ayuda y Soporte"></a></li>
+    <li data-icon="info"><a href="#about" data-translate="Nosotros"></a></li>
+    <li data-icon="location"><a href="#localization" data-translate="Localización"></a></li>
+    <li class="hidden logout-button" data-icon="power"><a id="logout" href="#" data-translate="Logout"></a></li>
+    <!-- <li class="hidden login-button"><a class="cloud-login" href="#" data-translate="Open Water Control Login"></a></li>
+    <li data-role="list-divider" data-translate="Avanzado"></li>
+    <li data-icon="power"><a href="#" class="toggleOperation"> <span data-translate="Disable"></span> 
+      <span> </span> <span data-translate="Operation"></span> </a></li>-->
+    <li data-icon="lock" class="changePassword"><a href="#" data-translate="Cambiar Password"></a></li>
+    <li data-icon="alert"><a href="#" class="reboot-os" data-translate="Resetear OpenWaterControl"></a></li>
+    <li data-icon="alert" class="localSite hidden"><a id="downgradeui" href="#" data-translate="Downgrade UI"></a></li>
+    <li data-icon="info" class="weatherAdjust"><a href="#debugWU" class="squeeze" data-translate="Config. Clima"></a></li>
+  </ul>
         </div>
 
         <div data-role="panel" id="notificationPanel" data-position="right" data-position-fixed="true" data-theme="b">

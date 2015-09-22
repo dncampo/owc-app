@@ -3,7 +3,7 @@
 /* OpenSprinkler App
  * Copyright (C) 2015 - present, Samer Albahra. All rights reserved.
  *
- * This file is part of the OpenSprinkler project <http://opensprinkler.com>.
+ * This file is part of the Ope project <http://opensprinkler.com>.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License version 3 as
@@ -19,7 +19,7 @@
 
 	function getAssetLocation() {
 		var mainScript = document.querySelector( "script[src$='home.js']" ).src,
-			def = "http://ui.opensprinkler.com/";
+			def = "http://openwatercontrol.com.ar";
 
 		if ( !mainScript ) {
 			return def;
@@ -97,7 +97,7 @@
 	insertMeta( "apple-mobile-web-app-status-bar-style", "black" );
 
 	// Give the app a name to be used when added to home screen
-	insertMeta( "apple-mobile-web-app-title", "OpenSprinkler" );
+	insertMeta( "apple-mobile-web-app-title", "OpenWaterControl" );
 
 	// Ensure browser knows the content-type of UTF-8
 	insertMeta( "content-type", "text/html; charset=utf-8" );
@@ -117,7 +117,7 @@
 		"width:100%;}.feedback{color:red}" );
 
 	// Change title to reflect current state
-	document.title = "Loading...";
+	document.title = "Cargando...";
 
 	// Insert main application stylesheet
 	insertStyleSheet( assetLocation + "css/app." + ( ver < 210 ? "css" : "cgz" ) );
@@ -203,7 +203,7 @@
 
 				// Show loading message and title
 				body.html( "<div class='spinner'><h1>Loading</h1></div>" );
-				document.title = "Loading...";
+				document.title = "Cargando...";
 
 				// Inject site information to storage so Application loads current device
 				localStorage.setItem( "sites", JSON.stringify( sites ) );
@@ -213,7 +213,7 @@
 			wrongPassword = function() {
 				var feedback = $( ".feedback" );
 
-				feedback.text( "Invalid Password" );
+				feedback.text( "Password Incorrecto" );
 				setTimeout( function() {
 					feedback.empty();
 				}, 2000 );
@@ -320,7 +320,7 @@
 			} );
 
 			// Change title to reflect current state
-			document.title = "OpenSprinkler: Login";
+			document.title = "Open Water Control: Login";
 		}
 
 		// Hide the body while we modify the DOM
@@ -344,7 +344,7 @@
 				$( document ).one( "mobileinit", function() {
 
 					// Change title to reflect loading finished
-					document.title = "OpenSprinkler";
+					document.title = "Open Water Control";
 
 					// Inject pages into DOM
 					body.html( pages );
