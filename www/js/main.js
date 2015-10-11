@@ -5126,7 +5126,6 @@ var showHome = ( function() {
 	return begin;
 } )();
 
-
 var showStart = ( function() {
 	var page = $( "<div data-role='page' id='start'>" +
 		    "<ul data-role='none' id='welcome_list' class='ui-listview ui-listview-inset ui-corner-all'>" +
@@ -5213,7 +5212,7 @@ var showStart = ( function() {
 	return begin;
 } )();
 
-/* 
+/*
 var showStart = ( function() {
 	var page = $( "<div data-role='page' id='start'>" +
 		    "<ul data-role='none' id='welcome_list' class='ui-listview ui-listview-inset ui-corner-all'>" +
@@ -5248,13 +5247,11 @@ var showStart = ( function() {
 		            resetStartMenu();
 		            return;
 		        }
-
 		        // Check if the IP is on a private network, if not don't enable automatic scanning
 		        if ( !isLocalIP( ip ) ) {
 		            resetStartMenu();
 		            return;
 		        }
-
 		        //Change main menu items to reflect ability to automatically scan
 		        next.removeClass( "ui-first-child" ).find( "a.ui-btn" ).text( _( "Manually Add Device" ) );
 		        auto.show();
@@ -5266,44 +5263,33 @@ var showStart = ( function() {
 		},
 		auto = page.find( "#auto-scan" ),
 		next = auto.next();
-
     page.find( "#auto-scan" ).find( "a" ).on( "click", function() {
         startScan();
         return false;
     } );
-
     page.find( "a[href='#addnew']" ).on( "click", function() {
 		showAddNew();
     } );
-
     page.find( ".cloud-login" ).on( "click", function() {
         requestCloudAuth();
         return false;
     } );
-
     page.on( "pagehide", function() {
         page.detach();
     } );
-
 	function begin() {
 		if ( isControllerConnected() ) {
 			return false;
 		}
-
 	    $( "#start" ).remove();
-
 	    $.mobile.pageContainer.append( page );
-
 		checkAutoScan();
 	}
-
 	return begin;
 } )();
 
-
 */
 
-  
 function showGuidedSetup() {
 
 	// Stub for guided setup page
@@ -11384,23 +11370,23 @@ function updateLang( lang ) {
 
     //Empty out the current language (English is provided as the key)
     language = {};
+
     //storage.get( "lang", "es" );
-	
+
     if ( typeof lang === "undefined" ) {
         storage.get( "lang", function( data ) {
 
             //Identify the current browser's locale
              var locale = data.lang || navigator.language || navigator.browserLanguage || navigator.systemLanguage || navigator.userLanguage || "es";
-             
-			 updateLang( locale.substring( 0, 2 ) );         
-             
+
+			 updateLang( locale.substring( 0, 2 ) );
+
         } );
         return;
     }
 
     storage.set( { "lang":lang } );
     currLang = lang;
-
 
    if ( lang === "en" ) {
         setLang();

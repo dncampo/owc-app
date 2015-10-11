@@ -327,7 +327,8 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( "default", [ "jshint", "jscs" ] );
+	//grunt.registerTask( "default", [ "jshint", "jscs" ] );
+  grunt.registerTask( "default", [ ] );
 	grunt.registerTask( "test", [ "default", "blanket_mocha" ] );
 	grunt.registerTask( "updateLang", [ "shell:updateLang" ] );
 	grunt.registerTask( "pushEng", [ "shell:pushEng" ] );

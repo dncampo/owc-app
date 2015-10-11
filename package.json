@@ -1,51 +1,19 @@
 {
-  "name": "OpenSprinkler",
-  "author": "Samer Albahra",
-  "license": "AGPL-3.0",
+  "name": "openwatercontrol",
+  "author": "test",
   "phonegap": {
     "id": "1371093"
   },
-  "version": "1.4.7",
-  "description": "Designed to allow intuitive control of the OpenSprinkler irrigation controller.",
+  "version": "1.0.0",
+  "description": "Designed to allow intuitive control of the openwatercontrol irrigation controller.",
   "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OpenSprinkler/OpenSprinkler-App.git"
-  },
-  "keywords": [
-    "sprinklers",
-    "opensprinkler",
-    "sprinkler",
-    "water"
-  ],
-  "bugs": {
-    "url": "https://github.com/OpenSprinkler/OpenSprinkler-App/issues"
-  },
-  "homepage": "https://github.com/OpenSprinkler/OpenSprinkler-App",
-  "window": {
-    "toolbar": false,
-    "width": 942,
-    "height": 512,
-    "title": "OpenSprinkler",
-    "icon": "res/ios-web/icons/icon.png",
-    "resizable": true,
-    "fullscreen": false,
-    "position": "center"
-  },
-  "webkit": {
-    "page-cache": true
-  },
-  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36",
-  "no-edit-menu": true,
-  "devDependencies": {
+  "dependencies": {
     "blanket": "^1.1.6",
     "chai": "^3.0.0",
     "codecov.io": "^0.1.1",
     "coveralls": "^2.11.3",
     "grunt": "^0.4.5",
+    "grunt-cli": "0.1.13",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-compress": "^0.13.0",
     "grunt-contrib-csslint": "^0.5.0",
@@ -59,6 +27,15 @@
     "lcov-result-merger": "^1.0.2",
     "lodash": "^3.6.0",
     "mocha": "^2.2.3",
-    "xcode": "^0.8.0"
+    "xcode": "^0.8.0",
+    "express":"*",
+    "cors": "*"
+  },
+  "engines": {
+    "npm": "2.1.x"
+  },
+  "scripts": {
+    "postinstall": "grunt makeFW",
+    "start": "node server.js"
   }
 }
