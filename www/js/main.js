@@ -5213,6 +5213,9 @@ var showStart = ( function() {
 } )();
 
 /*
+
+Commented because is not in use
+
 var showStart = ( function() {
 	var page = $( "<div data-role='page' id='start'>" +
 		    "<ul data-role='none' id='welcome_list' class='ui-listview ui-listview-inset ui-corner-all'>" +
@@ -11371,7 +11374,10 @@ function updateLang( lang ) {
     //Empty out the current language (English is provided as the key)
     language = {};
 
-    //storage.get( "lang", "es" );
+    /*
+    Commented because is not in use
+    storage.get( "lang", "es" );
+     */
 
     if ( typeof lang === "undefined" ) {
         storage.get( "lang", function( data ) {
