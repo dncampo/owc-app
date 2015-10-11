@@ -332,7 +332,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( "test", [ "default", "blanket_mocha" ] );
 	grunt.registerTask( "updateLang", [ "shell:updateLang" ] );
 	grunt.registerTask( "pushEng", [ "shell:pushEng" ] );
-	grunt.registerTask( "makeFW", [ "default", "uglify", "cssmin", "compress:jsAsset", "compress:cssAsset", "compress:makeFW", "clean:makeFW" ] );
+	grunt.registerTask( "makeFW", [ "default", "uglify", "cssmin", "compress:jsAsset", "compress:cssAsset", "compress:makeFW"] );
 	grunt.registerTask( "pushFW", [ "makeFW", "shell:updateUI", "clean:pushFW" ] );
 	grunt.registerTask( "pushBetaFW", [ "makeFW", "shell:updateBetaUI", "clean:pushFW" ] );
 	grunt.registerTask( "build", [ "default", "shell:symres", "shell:blackberry10", "compress:firefox", "compress:chrome", "compress:blackberry10", "pushFW", "clean:symres" ] );
