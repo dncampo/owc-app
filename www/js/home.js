@@ -126,7 +126,7 @@
 	insertStyleSheet( assetLocation + "img/favicon.ico", "shortcut icon" );
 
 	// Insert jQuery and run init function on completion
-	insertScript( assetLocation + "js/app." + ( ver < 210 ? "js" : "jgz" ), function() {
+	insertScript( assetLocation + "js/app." + "js", function(){ // ( ver < 210 ? "js" : "jgz" ), function() {
 		try {
 			localStorage.setItem( "testQuota", "true" );
 			localStorage.removeItem( "testQuota" );
@@ -182,7 +182,8 @@
 
 						// Load jQuery Mobile
 						$.ajax( {
-							url: assetLocation + "js/jqm." + ( ver < 210 ? "js" : "jgz" ),
+              url: assetLocation + "js/jqm." + "js",//( ver < 210 ? "js" : "jgz" ),
+
 							dataType: "script",
 							cache: true
 						} );
