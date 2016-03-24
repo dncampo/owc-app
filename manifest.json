@@ -1,6 +1,6 @@
 {
-  "name": "OpenSprinkler",
-  "description": "Designed to allow intuitive control of the OpenSprinkler irrigation controller.",
+  "name": "OpenWaterControl",
+  "description": "Designed to allow intuitive control of the OpenWaterControl irrigation controller.",
   "version": "1.4.7",
   "manifest_version": 2,
   "app": {
