@@ -9843,6 +9843,7 @@ function removeNotification( button ) {
 }
 
 function checkFirmwareUpdate() {
+	return; //we don't have any updates.
 
     // Update checks are only be available for Arduino firmwares
     if ( checkOSVersion( 200 ) ) {
